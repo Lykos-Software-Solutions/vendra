@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
 type Tema = "claro" | "oscuro";
@@ -11,13 +11,29 @@ function temaEfectivo(): Tema {
   return matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
 }
 
-export function TemaToggle() {
-  // Arranca en null para que el HTML del server coincida en la hidratación
-  const [tema, setTema] = useState<Tema | null>(null);
+// El tema vive fuera de React (data-theme + media query del sistema);
+// useSyncExternalStore lo observa y mantiene la hidratación segura:
+// el server no conoce el tema, así que su snapshot es null (ícono luna).
+function suscribir(notificar: () => void) {
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  mq.addEventListener("change", notificar);
+  const observador = new MutationObserver(notificar);
+  observador.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => {
+    mq.removeEventListener("change", notificar);
+    observador.disconnect();
+  };
+}
 
-  useEffect(() => {
-    setTema(temaEfectivo());
-  }, []);
+export function TemaToggle() {
+  const tema = useSyncExternalStore<Tema | null>(
+    suscribir,
+    temaEfectivo,
+    () => null,
+  );
 
   function alternar() {
     const nuevo: Tema = temaEfectivo() === "oscuro" ? "claro" : "oscuro";
@@ -25,7 +41,6 @@ export function TemaToggle() {
     try {
       localStorage.setItem("tema", nuevo);
     } catch {}
-    setTema(nuevo);
   }
 
   const etiqueta =

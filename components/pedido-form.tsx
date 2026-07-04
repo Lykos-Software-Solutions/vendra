@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Plus, Trash2 } from "lucide-react";
 import { moneda } from "@/lib/format";
 
@@ -195,12 +196,12 @@ export function PedidoForm({
         >
           Crear pedido
         </button>
-        <a
+        <Link
           href="/pedidos"
           className="rounded-lg px-4 py-2 text-sm font-medium text-tinta-2 ring-1 ring-borde transition-colors hover:bg-papel hover:text-tinta"
         >
           Cancelar
-        </a>
+        </Link>
       </div>
     </form>
   );
