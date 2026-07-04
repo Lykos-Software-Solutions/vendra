@@ -24,7 +24,7 @@ export function BotonEliminar({
       <button
         type="submit"
         title={`Eliminar ${nombre}`}
-        className="rounded-md p-2 text-tinta-3 transition-colors hover:bg-red-50 hover:text-red-700"
+        className="rounded-md p-2 text-tinta-3 transition-colors hover:bg-error-suave hover:text-error"
       >
         <Trash2 className="size-4" />
         <span className="sr-only">Eliminar {nombre}</span>

@@ -25,6 +25,26 @@
   /* Alertas de stock */
   --color-alerta: light-dark(#b45309, #e0913c);
   --color-alerta-suave: light-dark(#fdf3e0, #362510);
+
+  /* Errores de formularios y acciones destructivas */
+  --color-error: light-dark(#b91c1c, #f0938a);
+  --color-error-suave: light-dark(#fef2f2, #391716);
+  --color-error-texto: light-dark(#991b1b, #f2b3ac);
+  --color-error-borde: light-dark(#fecaca, #6b2420);
+
+  /* Chips de estado de pedidos */
+  --color-pendiente: light-dark(#d97706, #e5a33c);
+  --color-pendiente-suave: light-dark(#fdf3e0, #33270e);
+  --color-pendiente-texto: light-dark(#8a4b04, #efc689);
+  --color-preparacion: light-dark(#0e7dc1, #4aa8dd);
+  --color-preparacion-suave: light-dark(#e8f3fb, #102a3a);
+  --color-preparacion-texto: light-dark(#0b5d90, #93cdf0);
+  --color-enviado: light-dark(#6d28d9, #a583ec);
+  --color-enviado-suave: light-dark(#f1ecfb, #241b3d);
+  --color-enviado-texto: light-dark(#5b21b6, #c9b6f2);
+  --color-entregado: light-dark(#0a9455, #33bd7f);
+  --color-entregado-suave: light-dark(#e6f6ee, #0e3020);
+  --color-entregado-texto: light-dark(#076b3e, #86d9ad);
 }
 
 /* Sin elección guardada manda el sistema; data-theme la pisa. */

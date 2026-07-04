@@ -113,8 +113,7 @@ export default async function PaginaPedido({
                       }`}
                     >
                       <span
-                        className="size-2 rounded-full"
-                        style={{ background: info.punto }}
+                        className={`size-2 rounded-full ${info.punto}`}
                         aria-hidden
                       />
                       <span className="flex-1">{info.etiqueta}</span>

@@ -39,7 +39,7 @@ export function ProductoForm({
       {error && MENSAJES_ERROR[error] && (
         <p
           role="alert"
-          className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800 ring-1 ring-red-200"
+          className="mb-4 rounded-lg bg-error-suave px-4 py-3 text-sm text-error-texto ring-1 ring-error-borde"
         >
           {MENSAJES_ERROR[error]}
         </p>

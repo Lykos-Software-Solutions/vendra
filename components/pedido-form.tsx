@@ -75,7 +75,7 @@ export function PedidoForm({
       {error && MENSAJES_ERROR[error] && (
         <p
           role="alert"
-          className="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-800 ring-1 ring-red-200"
+          className="mb-4 rounded-lg bg-error-suave px-4 py-3 text-sm text-error-texto ring-1 ring-error-borde"
         >
           {MENSAJES_ERROR[error]}
         </p>
@@ -147,7 +147,7 @@ export function PedidoForm({
                 onClick={() => quitarFila(fila.clave)}
                 disabled={filas.length === 1}
                 title="Quitar producto"
-                className="rounded-md p-2 text-tinta-3 transition-colors hover:bg-red-50 hover:text-red-700 disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-tinta-3"
+                className="rounded-md p-2 text-tinta-3 transition-colors hover:bg-error-suave hover:text-error disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-tinta-3"
               >
                 <Trash2 className="size-4" />
                 <span className="sr-only">Quitar producto</span>

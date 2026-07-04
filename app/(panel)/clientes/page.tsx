@@ -78,7 +78,7 @@ export default async function PaginaClientes({
                       href={`/clientes/${cliente.id}`}
                       className="flex items-center gap-3"
                     >
-                      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-marca-100 text-xs font-semibold text-marca-800">
+                      <span className="grid size-9 shrink-0 place-items-center rounded-full bg-marca-50 text-xs font-semibold text-marca-800">
                         {iniciales(cliente.nombre)}
                       </span>
                       <span>

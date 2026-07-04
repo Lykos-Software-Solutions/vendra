@@ -13,23 +13,23 @@ export const ESTADO_INFO: Record<
 > = {
   PENDIENTE: {
     etiqueta: "Pendiente",
-    punto: "#d97706",
-    chip: "bg-[#fdf3e0] text-[#8a4b04] ring-[#d97706]/25",
+    punto: "bg-pendiente",
+    chip: "bg-pendiente-suave text-pendiente-texto ring-pendiente/25",
   },
   EN_PREPARACION: {
     etiqueta: "En preparación",
-    punto: "#0e7dc1",
-    chip: "bg-[#e8f3fb] text-[#0b5d90] ring-[#0e7dc1]/25",
+    punto: "bg-preparacion",
+    chip: "bg-preparacion-suave text-preparacion-texto ring-preparacion/25",
   },
   ENVIADO: {
     etiqueta: "Enviado",
-    punto: "#6d28d9",
-    chip: "bg-[#f1ecfb] text-[#5b21b6] ring-[#6d28d9]/25",
+    punto: "bg-enviado",
+    chip: "bg-enviado-suave text-enviado-texto ring-enviado/25",
   },
   ENTREGADO: {
     etiqueta: "Entregado",
-    punto: "#0a9455",
-    chip: "bg-[#e6f6ee] text-[#076b3e] ring-[#0a9455]/25",
+    punto: "bg-entregado",
+    chip: "bg-entregado-suave text-entregado-texto ring-entregado/25",
   },
 };
 
