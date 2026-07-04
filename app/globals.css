@@ -4,27 +4,40 @@
   --font-sans: var(--font-instrument), system-ui, sans-serif;
   --font-display: var(--font-sora), var(--font-instrument), system-ui, sans-serif;
 
-  /* Papel cálido + tinta verdosa */
-  --color-papel: #f5f4ef;
-  --color-carta: #ffffff;
-  --color-tinta: #1a2421;
-  --color-tinta-2: #5b6660;
-  --color-tinta-3: #879088;
-  --color-borde: #e7e5dc;
+  /* Papel cálido + tinta verdosa (claro) / verde-negruzco (oscuro) */
+  --color-papel: light-dark(#f5f4ef, #101613);
+  --color-carta: light-dark(#ffffff, #17211b);
+  --color-tinta: light-dark(#1a2421, #e7ece8);
+  --color-tinta-2: light-dark(#5b6660, #a6b0a8);
+  --color-tinta-3: light-dark(#879088, #7d887f);
+  --color-borde: light-dark(#e7e5dc, #29342c);
 
   /* Verde petróleo, el color de Vendra */
-  --color-marca-50: #f0f8f4;
-  --color-marca-100: #dcefe6;
+  --color-marca-50: light-dark(#f0f8f4, #152e24);
+  --color-marca-100: light-dark(#dcefe6, #cde8da);
   --color-marca-200: #b5dfcc;
-  --color-marca-600: #0b8c68;
-  --color-marca-700: #0e6b50;
-  --color-marca-800: #10493a;
+  --color-marca-600: light-dark(#0b8c68, #16a37c);
+  --color-marca-700: light-dark(#0e6b50, #11845f);
+  --color-marca-800: light-dark(#10493a, #9bd4ba);
   --color-marca-900: #0f3931;
-  --color-marca-950: #0b241f;
+  --color-marca-950: light-dark(#0b241f, #0a1d18);
 
   /* Alertas de stock */
-  --color-alerta: #b45309;
-  --color-alerta-suave: #fdf3e0;
+  --color-alerta: light-dark(#b45309, #e0913c);
+  --color-alerta-suave: light-dark(#fdf3e0, #362510);
+}
+
+/* Sin elección guardada manda el sistema; data-theme la pisa. */
+html {
+  color-scheme: light;
+}
+html[data-theme="oscuro"] {
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="claro"]) {
+    color-scheme: dark;
+  }
 }
 
 body {
@@ -36,6 +49,7 @@ body {
 
 ::selection {
   background: var(--color-marca-200);
+  color: #0f3931;
 }
 
 @media (prefers-reduced-motion: reduce) {
