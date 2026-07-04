@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Plus } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { moneda, fechaHora } from "@/lib/format";
 import { ESTADO_INFO, FILTROS_ESTADO, type Estado } from "@/lib/estados";
@@ -44,7 +44,15 @@ export default async function PaginaPedidos({
       <Encabezado
         titulo="Pedidos"
         descripcion="Seguí cada pedido desde que entra hasta que se entrega."
-      />
+      >
+        <Link
+          href="/pedidos/nuevo"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-marca-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-marca-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca-600"
+        >
+          <Plus className="size-4" />
+          Nuevo pedido
+        </Link>
+      </Encabezado>
 
       <nav className="mb-4 flex flex-wrap gap-2" aria-label="Filtrar por estado">
         {TABS.map((tab) => {
