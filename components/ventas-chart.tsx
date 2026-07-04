@@ -46,16 +46,16 @@ export function VentasChart({ datos }: { datos: PuntoVenta[] }) {
         <AreaChart data={datos} margin={{ top: 8, right: 4, left: 4, bottom: 0 }}>
           <defs>
             <linearGradient id="relleno-ventas" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0b8c68" stopOpacity={0.25} />
-              <stop offset="100%" stopColor="#0b8c68" stopOpacity={0} />
+              <stop offset="0%" stopColor="var(--color-marca-600)" stopOpacity={0.25} />
+              <stop offset="100%" stopColor="var(--color-marca-600)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid vertical={false} stroke="#e7e5dc" strokeWidth={1} />
+          <CartesianGrid vertical={false} stroke="var(--color-borde)" strokeWidth={1} />
           <XAxis
             dataKey="dia"
             tickLine={false}
-            axisLine={{ stroke: "#d5d3c9" }}
-            tick={{ fill: "#879088", fontSize: 12 }}
+            axisLine={{ stroke: "var(--color-borde)" }}
+            tick={{ fill: "var(--color-tinta-3)", fontSize: 12 }}
             interval={4}
             tickMargin={8}
           />
@@ -63,21 +63,21 @@ export function VentasChart({ datos }: { datos: PuntoVenta[] }) {
             width={56}
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#879088", fontSize: 12 }}
+            tick={{ fill: "var(--color-tinta-3)", fontSize: 12 }}
             tickFormatter={(valor: number) => monedaCompacta(valor)}
           />
           <Tooltip
             content={<TooltipVentas />}
-            cursor={{ stroke: "#b5dfcc", strokeWidth: 1 }}
+            cursor={{ stroke: "var(--color-marca-200)", strokeWidth: 1 }}
           />
           <Area
             type="monotone"
             dataKey="total"
-            stroke="#0b8c68"
+            stroke="var(--color-marca-600)"
             strokeWidth={2}
             fill="url(#relleno-ventas)"
             dot={false}
-            activeDot={{ r: 4, fill: "#0b8c68", stroke: "#ffffff", strokeWidth: 2 }}
+            activeDot={{ r: 4, fill: "var(--color-marca-600)", stroke: "var(--color-carta)", strokeWidth: 2 }}
           />
         </AreaChart>
       </ResponsiveContainer>
