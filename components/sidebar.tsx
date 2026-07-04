@@ -9,6 +9,7 @@ import {
   Package,
   LogOut,
 } from "lucide-react";
+import { TemaToggle } from "./tema-toggle";
 
 const enlaces = [
   { href: "/", etiqueta: "Panel general", Icono: LayoutDashboard },
@@ -93,14 +94,17 @@ export function Sidebar() {
                 Administración
               </span>
             </span>
-            <Link
-              href="/login"
-              title="Cerrar sesión"
-              className="rounded-md p-1.5 text-marca-200/70 hover:bg-white/5 hover:text-white"
-            >
-              <LogOut className="size-4" />
-              <span className="sr-only">Cerrar sesión</span>
-            </Link>
+            <span className="flex items-center gap-0.5">
+              <TemaToggle />
+              <Link
+                href="/login"
+                title="Cerrar sesión"
+                className="rounded-md p-1.5 text-marca-200/70 hover:bg-white/5 hover:text-white"
+              >
+                <LogOut className="size-4" />
+                <span className="sr-only">Cerrar sesión</span>
+              </Link>
+            </span>
           </div>
         </div>
       </aside>
@@ -129,6 +133,7 @@ export function Sidebar() {
             );
           })}
         </nav>
+        <TemaToggle />
       </header>
     </>
   );
