@@ -56,6 +56,35 @@ El seed carga 15 productos, 20 clientes y 60 pedidos distribuidos en los último
 3 meses, así el panel se ve poblado desde el primer arranque. Para regenerar los
 datos en cualquier momento: `npx prisma db seed`.
 
+## Deploy con Docker / Dokploy
+
+El repo incluye un `Dockerfile` pensado para Dokploy (build type **Dockerfile**).
+En el arranque, `npm run start:prod` aplica las migraciones con
+`prisma migrate deploy` y ejecuta el seed **solo si la base está vacía**, así el
+demo siempre levanta con datos sin pisarlos en cada reinicio.
+
+Configuración necesaria en Dokploy:
+
+| Qué | Valor |
+| --- | --- |
+| Variable de entorno | `DATABASE_URL=file:/app/data/vendra.db` |
+| Volumen (mount) | montar un volumen en `/app/data` |
+| Puerto expuesto | `3000` |
+
+El volumen en `/app/data` persiste la base SQLite entre deploys y reinicios; sin
+él, la base se regenera (migraciones + seed) en cada arranque y se pierde
+cualquier cambio hecho desde la app.
+
+Notas:
+
+- `prisma generate` corre en el build de la imagen (script `postinstall` y
+  también en `npm run build`).
+- La imagen conserva las dependencias de desarrollo porque el arranque usa la
+  CLI de Prisma y `tsx` para el seed; es una elección deliberada de simplicidad
+  para un demo.
+- Si en vez del Dockerfile se usa Nixpacks, alcanza con configurar el comando de
+  inicio como `npm run start:prod`.
+
 ## Estructura
 
 ```

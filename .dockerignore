@@ -1,0 +1,16 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+!.env.example
+*.md
+prisma/*.db
+prisma/*.db-journal
+*.sqlite
+.claude
+.remember
+.vercel
+coverage
+Dockerfile
+.dockerignore
