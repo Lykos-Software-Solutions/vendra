@@ -81,3 +81,78 @@ export async function eliminarProducto(formData: FormData) {
   revalidatePath("/", "layout");
   redirect("/productos");
 }
+
+export async function crearPedido(formData: FormData) {
+  const clienteId = Number(formData.get("clienteId"));
+  const notas = String(formData.get("notas") ?? "").trim();
+  const productoIds = formData.getAll("productoId").map(Number);
+  const cantidades = formData.getAll("cantidad").map(Number);
+
+  const valido =
+    Number.isInteger(clienteId) &&
+    clienteId > 0 &&
+    productoIds.length > 0 &&
+    productoIds.length === cantidades.length &&
+    productoIds.every((id) => Number.isInteger(id) && id > 0) &&
+    cantidades.every((c) => Number.isInteger(c) && c > 0) &&
+    new Set(productoIds).size === productoIds.length;
+  if (!valido) redirect("/pedidos/nuevo?error=datos");
+
+  // El total y los precios unitarios se calculan acá con los precios de la
+  // base; lo que manda el cliente es solo informativo.
+  let pedidoId = 0;
+  let falla: "datos" | "stock" | null = null;
+  try {
+    pedidoId = await prisma.$transaction(async (tx) => {
+      const [cliente, productos] = await Promise.all([
+        tx.cliente.findUnique({ where: { id: clienteId } }),
+        tx.producto.findMany({ where: { id: { in: productoIds } } }),
+      ]);
+      if (!cliente || productos.length !== productoIds.length) {
+        throw new Error("datos");
+      }
+
+      const porId = new Map(productos.map((p) => [p.id, p]));
+      const items = productoIds.map((id, i) => ({
+        producto: porId.get(id)!,
+        cantidad: cantidades[i],
+      }));
+      if (items.some((it) => it.cantidad > it.producto.stock)) {
+        throw new Error("stock");
+      }
+
+      for (const it of items) {
+        await tx.producto.update({
+          where: { id: it.producto.id },
+          data: { stock: { decrement: it.cantidad } },
+        });
+      }
+
+      const ultimo = await tx.pedido.aggregate({ _max: { numero: true } });
+      const pedido = await tx.pedido.create({
+        data: {
+          numero: (ultimo._max.numero ?? 1000) + 1,
+          estado: "PENDIENTE",
+          fecha: new Date(),
+          total: items.reduce((s, it) => s + it.cantidad * it.producto.precio, 0),
+          notas: notas || null,
+          clienteId,
+          items: {
+            create: items.map((it) => ({
+              productoId: it.producto.id,
+              cantidad: it.cantidad,
+              precioUnitario: it.producto.precio,
+            })),
+          },
+        },
+      });
+      return pedido.id;
+    });
+  } catch (e) {
+    falla = e instanceof Error && e.message === "stock" ? "stock" : "datos";
+  }
+  if (falla) redirect(`/pedidos/nuevo?error=${falla}`);
+
+  revalidatePath("/", "layout");
+  redirect(`/pedidos/${pedidoId}`);
+}
