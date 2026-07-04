@@ -149,6 +149,8 @@ export async function crearPedido(formData: FormData) {
       return pedido.id;
     });
   } catch (e) {
+    const esperado = e instanceof Error && (e.message === "stock" || e.message === "datos");
+    if (!esperado) console.error("crearPedido:", e);
     falla = e instanceof Error && e.message === "stock" ? "stock" : "datos";
   }
   if (falla) redirect(`/pedidos/nuevo?error=${falla}`);

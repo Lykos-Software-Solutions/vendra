@@ -9,7 +9,7 @@
   --color-carta: light-dark(#ffffff, #17211b);
   --color-tinta: light-dark(#1a2421, #e7ece8);
   --color-tinta-2: light-dark(#5b6660, #a6b0a8);
-  --color-tinta-3: light-dark(#879088, #7d887f);
+  --color-tinta-3: light-dark(#879088, #828d84);
   --color-borde: light-dark(#e7e5dc, #29342c);
 
   /* Verde petróleo, el color de Vendra */
@@ -69,7 +69,7 @@ body {
 
 ::selection {
   background: var(--color-marca-200);
-  color: #0f3931;
+  color: var(--color-marca-900);
 }
 
 @media (prefers-reduced-motion: reduce) {
