@@ -14,7 +14,7 @@
 [![CI](https://github.com/Lykos-Software-Solutions/vendra/actions/workflows/ci.yml/badge.svg)](https://github.com/Lykos-Software-Solutions/vendra/actions/workflows/ci.yml)
 
 > Demo showcase desarrollado por [Lykos Software Solutions](https://lykos.com.ar).
-> La pantalla de login es decorativa — no hay autenticación real.
+> La pantalla de login tiene autenticación básica para el demo. Credenciales: **`vendra2026`**
 
 </div>
 

@@ -96,7 +96,6 @@ export default function PaginaLogin() {
               <input
                 type="password"
                 autoComplete="off"
-                defaultValue="vendra2026"
                 className={claseCampo}
               />
             </label>
