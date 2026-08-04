@@ -14,9 +14,28 @@ const instrument = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vendra · Gestión de pedidos",
+  metadataBase: new URL("https://vendra.lykos.com.ar"),
+  title: {
+    default: "Vendra · Gestión de Pedidos e Inventario para PYMEs",
+    template: "%s · Vendra",
+  },
   description:
-    "Sistema de gestión de pedidos para pymes: ventas, clientes, productos y stock en un solo panel.",
+    "Sistema de gestión de ventas, pedidos, clientes y stock en un solo panel. Demo por Lykos Software Solutions.",
+  openGraph: {
+    title: "Vendra · Gestión de Pedidos e Inventario para PYMEs",
+    description:
+      "Sistema de gestión de ventas, pedidos, clientes y stock en un solo panel por Lykos Software Solutions.",
+    url: "https://vendra.lykos.com.ar",
+    siteName: "Vendra",
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vendra · Gestión de Pedidos e Inventario para PYMEs",
+    description:
+      "Sistema de gestión de ventas, pedidos, clientes y stock en un solo panel por Lykos Software Solutions.",
+  },
 };
 
 export default function RootLayout({
