@@ -2,7 +2,7 @@
 
 # Vendra
 
-**Sistema de gestión de pedidos e inventario para pymes**
+**Sistema de gestión de pedidos e inventario optimizado para rendimiento**
 
 [![Live Demo](https://img.shields.io/badge/🌐_Demo_en_vivo-vendra.lykos.com.ar-6366f1?style=for-the-badge)](https://vendra.lykos.com.ar/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
@@ -13,7 +13,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![CI](https://github.com/Lykos-Software-Solutions/vendra/actions/workflows/ci.yml/badge.svg)](https://github.com/Lykos-Software-Solutions/vendra/actions/workflows/ci.yml)
 
-> Demo showcase desarrollado por [Lykos Software Solutions](https://lykos.com.ar).
+> Demo showcase desarrollado por [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar).
 > La pantalla de login tiene autenticación básica para el demo. Credenciales: **`vendra2026`**
 
 </div>
@@ -22,7 +22,7 @@
 
 ## 🌐 English Summary
 
-**Vendra** is an open-source order and inventory management dashboard for small and medium businesses (SMBs). Built as a demo/portfolio showcase by [Lykos Software Solutions](https://lykos.com.ar).
+**Vendra** is an open-source order and inventory management dashboard for small and medium businesses (SMBs). Built as a demo/portfolio showcase by [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar).
 
 **Features:** order tracking with status workflow, customer directory with order history, product catalog with stock alerts, and a sales dashboard with charts.
 
@@ -122,7 +122,7 @@ prisma/             Schema, migraciones y seed con datos realistas
 
 ## 🤝 Contribuciones
 
-Este es un proyecto de demostración de [Lykos Software Solutions](https://lykos.com.ar). Leé [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir un PR.
+Este es un proyecto de demostración de [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar). Leé [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir un PR.
 
 ¿Querés una versión con autenticación real, pagos, multi-sucursal o integración con WhatsApp? **[hola@lykos.com.ar](mailto:hola@lykos.com.ar)**
 
@@ -130,4 +130,4 @@ Este es un proyecto de demostración de [Lykos Software Solutions](https://lykos
 
 ## 📄 Licencia
 
-[MIT](LICENSE) — © 2025 [Lykos Software Solutions](https://lykos.com.ar)
+[MIT](LICENSE) — © 2025 [Lykos - Performance-Driven Web Solutions](https://lykos.com.ar)
