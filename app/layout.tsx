@@ -30,6 +30,16 @@ export const metadata: Metadata = {
     locale: "es_AR",
     type: "website",
   },
+  // Todo el sitio es una demo publica: no hay contenido real que valga la pena
+  // indexar, y ademas esta servido en dos hosts a la vez
+  // (vendra.lykos.com.ar y vendra.templates.lykos.com.ar), o sea contenido
+  // duplicado sin canonical entre ellos. El panel tampoco deberia estar en el
+  // indice: son pantallas de gestion, no paginas de aterrizaje.
+  //
+  // noindex en el root se hereda a todas las rutas. Sin Disallow en robots.txt
+  // a proposito: bloquear el crawl impide que Google lea el noindex y por lo
+  // tanto que desindexe lo que ya tiene. Mismo criterio que en Horely.
+  robots: { index: false, follow: false },
   twitter: {
     card: "summary_large_image",
     title: "Vendra · Gestión de Pedidos e Inventario para PYMEs",
